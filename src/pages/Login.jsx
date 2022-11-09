@@ -6,7 +6,7 @@ import axios from 'axios';
 const LOGIN_URL = '/api/user/login';
 
 const Login = () => {
-    const { setAuth } = useContext(AuthContext);
+    const { auth, setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
 
@@ -16,8 +16,13 @@ const Login = () => {
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
-        userRef.current.focus();
-    }, [])
+        console.log(auth)
+        if (auth?.user) {
+            setSuccess(true);
+        } else {
+            userRef.current.focus();
+        }
+    }, [auth])
 
     useEffect(() => {
         setErrMsg('');
@@ -34,7 +39,7 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log(JSON.stringify(response?.data));
+            // console.log(JSON.stringify(response?.data));
             //console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             setAuth({ user, pwd, accessToken });
@@ -56,22 +61,22 @@ const Login = () => {
     }
 
     return (
-        <>
+        <main className="bg-gradient-to-r from-cyan-500 to-blue-800 min-h-screen flex flex-col justify-center items-center px-4 py-2 text-xl text-white">
             {success ? (
-                <section>
+                <section className="w-full flex flex-col justify-start p-4 bg-black bg-opacity-40 max-w-md min-h-[400px]">
                     <h1>You are logged in!</h1>
                     <br />
-                    <p>
+                    <p className="underline">
                         <Link to={{pathname: '/'}}>Go to Home</Link>
                         {/* <a href="#">Go to Home</a> */}
                     </p>
                 </section>
             ) : (
-                <section>
-                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                <section className="w-full flex flex-col justify-start p-4 bg-black bg-opacity-40 max-w-md min-h-[400px]">
+                    <p ref={errRef} className={errMsg ? "font-bold p-2 mb-2 text-red-500 bg-pink-400" : "absolute -left-[9999px]"} aria-live="assertive">{errMsg}</p>
                     <h1>Sign In</h1>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="username">Username:</label>
+                    <form onSubmit={handleSubmit} className="flex flex-col justify-evenly grow pb-4">
+                        <label htmlFor="username" className="mt-4">Username:</label>
                         <input
                             type="text"
                             id="username"
@@ -80,22 +85,24 @@ const Login = () => {
                             onChange={(e) => setUser(e.target.value)}
                             value={user}
                             required
+                            className="rounded-lg p-1 text-black"
                         />
 
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password" className="mt-4">Password:</label>
                         <input
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
                             required
+                            className="rounded-lg p-1 text-black"
                         />
 
-                        <button>Sign In</button>
+                        <button className="p-2 mt-4 rounded-lg bg-white text-black">Sign In</button>
                     </form>
                     <p>
                         Need an Account?<br />
-                        <span className="line">
+                        <span className="inline-block underline">
                             {/*put router link here*/}
                             <Link to={{pathname: '/register'}}>Sign Up</Link>
                             {/* <a href="#">Sign Up</a> */}
@@ -103,7 +110,7 @@ const Login = () => {
                     </p>
                 </section>
             )}
-        </>
+        </main>
     )
 }
 

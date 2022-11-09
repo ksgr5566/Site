@@ -147,7 +147,7 @@ router.get("/api/user/refresh", (req, res) => {
                                 process.env.ACCESS_TOKEN_SECRET,
                                 { expiresIn: '10s' }
                             );
-                            res.json({ accessToken })
+                            res.json({ accessToken, username: decoded.username })
                         }
                     );
                 }
