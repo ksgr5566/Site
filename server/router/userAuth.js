@@ -31,7 +31,7 @@ router.post("/api/user/register", (req, res) => {
         if (result.length === 0) {
           const pwd = await bcrypt.hash(password, 10);
           db.query(
-            "call new_user (?,?,?,?)",
+            "call insert_user (?,?,?,?)",
             [firstname, lastname, username, pwd],
             (err, result) => {
               if (err) {

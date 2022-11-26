@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import DropdownButton from "./DropdownButton";
 import { useNavigate } from "react-router-dom";
 import { Outlet } from 'react-router';
@@ -13,18 +13,24 @@ const NavBar = () => {
 
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "ABOUT", link: "/about" },
-    { name: "DISEASE DETECTION", link: "/detect" },
-    { name: "SHARE", link: "/share" },
+    { name: "PORTFOLIO A", link: "/portfolio/a" },
+    { name: "PORTFOLIO B", link: "/portfolio/b" },
+    // { name: "ABOUT", link: "/about" },
+    // { name: "DISEASE DETECTION", link: "/detect" },
+    // { name: "SHARE", link: "/share" },
   ];
 
   let [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
- 
-  function navigateLogin() {
-      navigate("/login");
-  };
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        setOpen(false);
+      }
+    })
+  })
 
   return (
     <>

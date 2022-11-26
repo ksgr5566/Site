@@ -1,7 +1,4 @@
 import Button from "../components/Button";
-// import Navbar from "./components/Navbar/Navbar";
-
-// import Market from "../assets/background.jpg"
 
 const Home = () => {
   return (

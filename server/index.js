@@ -31,6 +31,7 @@ app.use(require('./router/userAuth'))
 app.use(verifyJWT)
 
 app.use(require('./router/user'))
+app.use(require('./router/portfolio'))
 
 app.listen(PORT, () => {
   console.log(`Your server is running on port: ${PORT}`);

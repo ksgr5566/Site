@@ -12,6 +12,7 @@ module.exports = {
         Bull: "url('assets/background.jpg')",
       },
     },
+    
   },
   plugins: [],
 }
