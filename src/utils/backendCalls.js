@@ -23,5 +23,35 @@ const getPids = async () => {
         console.log(e)
     }
 }
+
+const getItems = async (pid) => {
+    try {
+        const { accessToken } = await getToken();
+        const response = await axios.get(`/api/items?pid=${pid}`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
+        return { ...response?.data }
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+const getSellQuantity = async (pid, ticker) => {
+    try {
+        const { accessToken } = await getToken();
+        const response = await axios.get(`/api/items/sellquantity?pid=${pid}&ticker=${ticker}`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
+        return  response?.data[0].quantity
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+const getBuyOrders = async (pid, ticker) => {
+    try {
+        const { accessToken } = await getToken();
+        const response = await axios.get(`/api/items/buyorders?pid=${pid}&ticker=${ticker}`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
+        return { ...response?.data }
+    } catch (e) {
+        console.log(e)
+    }
+}
     
-export { getToken, getPids };
+export { getToken, getPids, getItems, getSellQuantity, getBuyOrders };

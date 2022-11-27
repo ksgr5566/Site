@@ -27,11 +27,13 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(require('./router/userAuth'))
+app.use(require('./router/price'))
 
 app.use(verifyJWT)
 
 app.use(require('./router/user'))
 app.use(require('./router/portfolio'))
+app.use(require('./router/items'))
 
 app.listen(PORT, () => {
   console.log(`Your server is running on port: ${PORT}`);

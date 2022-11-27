@@ -1,6 +1,9 @@
 import Button from "../components/Button";
 
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <section className="h-screen bg-Bull bg-cover font-[Poppins] md:bg-top bg-center select-none">
       <div className="flex flex-col justify-center text-center items-center h-3/4">
@@ -9,7 +12,7 @@ const Home = () => {
            Manage your investments and track your stocks across multiple portfolios here.
         </h1>
         <div className="text-xl">
-          <Button text="Get Started" />
+          <Button text="Get Started" onClick={() => navigate("/login")}/>
         </div>
       </div>
     </section>

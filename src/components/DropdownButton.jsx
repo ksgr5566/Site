@@ -56,6 +56,7 @@ const DropdownButton = () => {
     try {
         await axios.put('/api/user/logout', { withCredentials: true })
         setAuth({})
+        navigate("/")
     } catch (err) {
         console.log(err);
     }
@@ -77,7 +78,7 @@ return (
               className="right-0 p-2 mt-1 bg-white rounded-md shadow lg:absolute flex flex-col"
             >
               <ul className="space-y-2 lg:w-48">
-                <li>
+                {/* <li>
                   <Link
                     to="#"
                     className="flex p-2 text-l font-sans text-gray-600 rounded-md  hover:bg-gray-100 hover:text-black"
@@ -87,7 +88,7 @@ return (
                   <Link to="#"
                     className="flex p-2 text-l font-sans text-gray-600 rounded-md  hover:bg-gray-100 hover:text-black"
                     >Inventories</Link>
-                </li>
+                </li> */}
                 <li>
                   <Button text="Logout" onClick={logout} />
                 </li>
