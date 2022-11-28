@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for macos12 (x86_64)
 --
 -- Host: localhost    Database: sitedb
 -- ------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `items` (
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`),
   CONSTRAINT `items_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `portfolio` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,6 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'AMZN',2,15260.40,1,'2022-11-27 20:52:25'),(2,'META',2,18201.06,1,'2022-11-27 20:52:46'),(3,'META',3,27301.59,1,'2022-11-27 20:53:53'),(4,'META',-2,-18201.06,1,'2022-11-27 20:54:24'),(5,'GOOG',3,23917.38,2,'2022-11-27 20:54:51'),(6,'USDT-USD',3,245.07,2,'2022-11-27 20:57:08'),(7,'USDT-USD',2,163.38,2,'2022-11-27 20:57:53'),(8,'USDT-USD',1,81.69,2,'2022-11-27 20:58:29'),(9,'USDT-USD',-2,-163.38,2,'2022-11-27 20:58:48'),(10,'USDT-USD',-1,-81.69,2,'2022-11-27 21:03:46');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +66,6 @@ CREATE TABLE `portfolio` (
 
 LOCK TABLES `portfolio` WRITE;
 /*!40000 ALTER TABLE `portfolio` DISABLE KEYS */;
-INSERT INTO `portfolio` VALUES (1,1),(2,1);
 /*!40000 ALTER TABLE `portfolio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +94,6 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'saran','bodduluri','saran','$2b$10$xCY2d4M.13CYNsmNB6rOMuY9lyhoBMWkpOMZvla0Xz5vjOPYVQC0C','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhcmFuIiwiaWF0IjoxNjY5NTg3OTc0LCJleHAiOjE2Njk2NzQzNzR9.N0R2BbdfYOdgB3Ar3uav8GZB8pNqwsmahfLRObtDiUw');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -127,4 +124,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-28 15:30:41
+-- Dump completed on 2022-11-28 16:04:22

@@ -25,6 +25,18 @@ You can manage your investments and track your stocks in multiple portfolios wit
 
 ---
 
+## SiteDB
+
+ER Model
+
+![ER MODEL](sqlimages/site_ER.png)
+
+Relational Model
+
+![Relational Model](sqlimages/site_relationalModel.png)
+
+---
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
