@@ -14,7 +14,7 @@ You can manage your investments and track your stocks in multiple portfolios wit
 
 4. `cd server` and `npm install` to set up backend server. Copy `.env.template` to `.env` and edit the environment variables in */server*.
 
-5. Either set up mysql database manually by constructing the databse locally by following commands in [MYSQL-SETUP](MYSQL-SETUP) or you can use the `sitedb.sql` file and do the following:
+5. Either set up mysql database manually by constructing the databse locally by following commands in [MYSQL-SETUP](MYSQL-SETUP.md) or you can use the `sitedb.sql` file and do the following:
    - Create a database named `sitedb` in your local mysql cli.
    - `use sitedb;`
    - `source sitedb.sql`
