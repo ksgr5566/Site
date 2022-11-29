@@ -285,9 +285,9 @@ const Portfolio = () => {
                 <p
                   className={
                     "mt-2 text-sm text-gray-600" +
-                      presentvalue -
+                      (presentvalue -
                       investedamount >
-                    0
+                    0)
                       ? "text-green-600"
                       : "text-red-500"
                   }
